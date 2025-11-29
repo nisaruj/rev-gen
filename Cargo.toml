@@ -1,0 +1,12 @@
+[package]
+name = "rev-gen"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.53", features = ["derive"] }
+if-addrs = "0.14"
+inquire = "0.9.1"
+colored = "3.0"
+base64 = "0.22.1"
+term_size = "0.3.2"
